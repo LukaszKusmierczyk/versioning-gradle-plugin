@@ -1,7 +1,23 @@
+buildscript {
+
+    ext {
+        artifactoryContextPath = "lkusmierczyk.jfrog.io/artifactory"
+        artifactoryContextUrl = "https://${artifactoryContextPath}"
+        artifactoryDevRepoKey = "test-gradle-dev"
+        artifactoryReleaseRepoKey = "test-gradle-release"
+    }
+
+    repositories {
+        mavenCentral()
+    }
+}
+
 plugins {
     id 'java-gradle-plugin'
-    id 'maven-publish'
+    id "com.jfrog.artifactory" version "4.24.20"
 }
+
+apply from: "$rootDir/gradle/artifactory.gradle"
 
 group 'com.klukasz'
 version '1.0-SNAPSHOT'

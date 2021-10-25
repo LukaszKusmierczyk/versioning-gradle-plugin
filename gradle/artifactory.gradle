@@ -1,0 +1,13 @@
+artifactory {
+    contextUrl = "${artifactoryContextUrl}"
+    publish {
+        repository {
+            repoKey = "${artifactoryDevRepoKey}"
+            username = "${myArtifactoryUser}"
+            password = "${myArtifactoryPassword}"
+        }
+        defaults {
+            publishConfigs('archives')
+        }
+    }
+}
